@@ -1,3 +1,15 @@
 @{
   Layout = "_Layout";
 }
+
+<h1>Add a new Machine</h1>
+@model Factory.Models.Machine
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model=>model.MachineName)
+  @Html.EditorFor(model=>model.MachineName)
+  <button>Save!</button>
+}
+
+
+<p>@Html.ActionLink("Return to Homepage", "Index", "Home")</p>
