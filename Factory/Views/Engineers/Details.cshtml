@@ -20,7 +20,7 @@ else
   <ul>
     @foreach (MachineEngineer fish in Model.JoinEntities)
     {
-      <li> Class: @fish.Machine.MachineName</li>
+      <li> Trained to work on: @fish.Machine.MachineName</li>
       @using (Html.BeginForm("DeleteFish", "Engineers"))
       {
         @Html.Hidden("FishId", fish.MachineEngineerId)
@@ -30,7 +30,7 @@ else
     </ul>
 }
     <p>@Html.ActionLink("Back to Engineers", "Index")</p>
-    <p>@Html.ActionLink("Add a Engineer to a Machine", "AddMachine", new {id = Model.EngineerId})</p>
+    <p>@Html.ActionLink("Add a machine to an Engineer", "AddMachine", new {id = Model.EngineerId})</p>
    <p>@Html.ActionLink("Back to Homepage", "Index", "Home")</p>
 
 
