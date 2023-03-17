@@ -45,7 +45,7 @@ namespace Factory.Controllers
             return View(thisEngineer);
         }
 
-        public ActionResult AddMachineEngineer(int id)
+        public ActionResult AddMachine(int id)
         {
             Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
             ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
@@ -53,7 +53,7 @@ namespace Factory.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddMachineEngineer(Engineer engineer, int MachineId)
+        public ActionResult AddMachine(Engineer engineer, int MachineId)
         {
 #nullable enable
             MachineEngineer? joinEntity = _db.MachineEngineers.FirstOrDefault(join => (join.MachineId == MachineId && join.EngineerId == engineer.EngineerId));

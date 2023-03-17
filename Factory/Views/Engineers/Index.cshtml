@@ -2,14 +2,14 @@
     Layout = "_Layout";
 }
 
-@using Gym.Models;
+@using Factory.Models;
 
-<h1> All Instructors </h1>
-@foreach (Instructor item in Model)
+<h1> All Engineers </h1>
+@foreach (Engineer item in Model)
 {
-    @Html.ActionLink($"{item.InstructorName}","Details", new {id =item.InstructorId} )
+    @Html.ActionLink($"{item.EngineerName}","Details", new {id =item.EngineerId} )
     <br>
 }
 <br><br>
-<p>@Html.ActionLink("Add an Instructor","Create")</p>
-<p>@Html.ActionLink("Run Home Smalls", "Index", "Home")</p>
+<p>@Html.ActionLink("Add an Engineer","Create")</p>
+<p>@Html.ActionLink("Back to Homepage", "Index", "Home")</p>
