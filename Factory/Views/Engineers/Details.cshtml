@@ -1,3 +1,39 @@
 @{
   Layout = "_Layout";
 }
+@{
+  Layout = "_Layout";
+}
+
+@using Gym.Models;
+@model Gym.Models.Member
+
+
+<h1>Member Details</h1> 
+
+<h2>@Html.DisplayNameFor(model => model.MemberName): @Html.DisplayFor(model => model.MemberName)</h2>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>NO CLASSES HAVE MEMBERS</p>
+}
+else
+{
+  <ul>
+    @foreach (ClassMember fish in Model.JoinEntities)
+    {
+      <li> Class: @fish.Class.Name</li>
+      @using (Html.BeginForm("DeleteFish", "Members"))
+      {
+        @Html.Hidden("FishId", fish.ClassMemberId)
+      }
+      
+    }
+    </ul>
+
+    <p>@Html.ActionLink("Back to Members", "Index")</p>
+    <p>@Html.ActionLink("Add a Class to Member", "AddClass", new {id = Model.MemberId})</p>
+   <p>@Html.ActionLink("Run Home Smalls", "Index", "Home")</p>
+
+
+}
