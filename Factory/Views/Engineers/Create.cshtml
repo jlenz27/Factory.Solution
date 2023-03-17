@@ -10,7 +10,7 @@
     @Html.EditorFor(model => model.EngineerName)
 
     <input type="submit" value="Add a new Engineer"/>
-
+    <p>@Html.ValidationMessageFor(model => model.EngineerId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 } 
 <p>@Html.ActionLink("Return to Homepage", "Index", "Home")</p>

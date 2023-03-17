@@ -4,10 +4,7 @@
 
 @using Factory.Models;
 <h4>Engineers</h4>
-@if (Model["engineers"].Length == 0)
-{
-  <p>No engineers have been added.</p>
-} 
+
 <ul>
   @foreach (Engineer fish in Model["engineers"])
   {
@@ -16,10 +13,6 @@
 </ul>
 
 <h4>Machines</h4>
-@if (Model["machines"].Length == 0)
-{
-  <p>No machines have been added.</p>
-} 
 <ul>
   @foreach (Machine trout in Model["machines"])
   {

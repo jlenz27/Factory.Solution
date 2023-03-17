@@ -8,21 +8,20 @@ namespace Factory.Controllers
   public class HomeController : Controller
   {
     private readonly FactoryContext _db;
-        private object engineers;
-        private object machines;
-
+    
         public HomeController(FactoryContext db)
     {
       _db = db;
     }
 
-    [HttpGet("/")]
-    public ActionResult Index()
+  
+
+        [HttpGet("/")]
+    public ActionResult Index(object Engineers, object Machines)
     {
-      
       List<object> model = new List< object>();
-      model.Add(engineers);
-      model.Add( machines);
+      model.Add(Engineers);
+      model.Add(Machines);
       return View(model);
     }
   }
