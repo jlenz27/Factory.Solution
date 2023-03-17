@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Engineer.Controllers
+namespace Factory.Controllers
 {
     public class EngineersController : Controller
     {
@@ -45,7 +47,7 @@ namespace Engineer.Controllers
 
         public ActionResult AddMachineEngineer(int id)
         {
-            Engineer thisEngineer = _db.Engineers.FirstOrDefault(Engineer => Engineers.EngineerId == id);
+            Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
             ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
             return View(thisEngineer);
         }

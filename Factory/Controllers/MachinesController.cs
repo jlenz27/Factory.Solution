@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using Microsoft.AspNetCore.Mvc;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
-using Factory.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
@@ -17,7 +18,8 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      return View(model);
+         return View(_db.Machines.ToList());
+
     }
 
     public ActionResult Create()
@@ -67,7 +69,7 @@ namespace Factory.Controllers
     public ActionResult AddEngineer(Machine machine, int engineerId)
     {
       #nullable enable
-      MachineEngineer? joinEntity = _db.MachineEngineers.FirstOrDefault(join => (join.EngineerId == engineerId && join.MachineId));
+      MachineEngineer? joinEntity = _db.MachineEngineers.FirstOrDefault(join => (join.EngineerId == engineerId && join.MachineId == machine.machineId));
       #nullable disable
       if (joinEntity == null && engineerId != 0)
       {
