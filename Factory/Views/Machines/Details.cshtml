@@ -30,4 +30,6 @@ else
 
 <p>@Html.ActionLink("Back to Machines List", "Index")</p>
 <p>@Html.ActionLink("Add an Engineer to Work a Machine", "AddEngineer", new {id = Model.MachineId})</p>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("To Homepage", "Index", "Home")</p>

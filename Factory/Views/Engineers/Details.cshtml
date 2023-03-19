@@ -7,11 +7,11 @@
 @model Factory.Models.Engineer
 
 
-<h1>Engineer Details</h1> 
+<h1>Engineer Details</h1>
 
 <h2>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h2>
 
-@if(@Model.JoinEntities.Count == 0)
+@if (@Model.JoinEntities.Count == 0)
 {
   <p>No engineers have machinces assigned yet</p>
 }
@@ -25,12 +25,14 @@ else
       {
         @Html.Hidden("FishId", fish.MachineEngineerId)
       }
-      
+
     }
-    </ul>
+  </ul>
 }
-    <p>@Html.ActionLink("Back to Engineers", "Index")</p>
-    <p>@Html.ActionLink("Add a machine to an Engineer", "AddMachine", new {id = Model.EngineerId})</p>
-   <p>@Html.ActionLink("Back to Homepage", "Index", "Home")</p>
+<p>@Html.ActionLink("Back to Engineers", "Index")</p>
+<p>@Html.ActionLink("See a list of machines to add an Engineer", "Index", "Machines")</p>
+<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Back to Homepage", "Index", "Home")</p>
 
 

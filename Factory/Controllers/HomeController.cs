@@ -16,13 +16,15 @@ namespace Factory.Controllers
 
   
 
-        [HttpGet("/")]
-    public ActionResult Index(object Engineers, object Machines)
-    {
-      List<object> model = new List< object>();
-      model.Add(Engineers);
-      model.Add(Machines);
-      return View(model);
-    }
+       [HttpGet("/")]
+      public ActionResult Index()
+      {
+        Engineer[] engineers = _db.Engineers.ToArray();
+        Machine[] machines = _db.Machines.ToArray();
+        Dictionary<string, object[]> model = new Dictionary<string, object[]>();
+        model.Add("engineers", engineers);
+        model.Add("machines", machines);
+        return View(model);
   }
+}
 }
